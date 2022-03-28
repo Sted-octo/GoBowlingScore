@@ -11,7 +11,7 @@ func main() {
 }
 
 func roll(fallenPins uint8) {
-	if !playerGame.isIndexValid() {
+	if playerGame == nil || !playerGame.isIndexValid() {
 		return
 	}
 
@@ -39,6 +39,9 @@ func roll(fallenPins uint8) {
 }
 
 func score() uint16 {
+	if playerGame == nil {
+		return 0
+	}
 
 	for indx := range playerGame.frames {
 		var currentFrame *frame = &playerGame.frames[indx]

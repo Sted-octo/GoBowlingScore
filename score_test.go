@@ -16,6 +16,16 @@ func scoreCompareToExpected(t *testing.T, expected uint16) {
 	t.Cleanup(initContext)
 }
 
+func Test_score_PaleyrGame_Nil_shouldbe_zero(t *testing.T) {
+
+	var currentScore uint16 = score()
+
+	if currentScore != 0 {
+		t.Errorf("Inital score should be 0 but was %d", currentScore)
+	}
+	t.Cleanup(initContext)
+}
+
 func Test_score_initial_values_shouldbe_zero(t *testing.T) {
 	initContext()
 	var currentScore uint16 = score()
