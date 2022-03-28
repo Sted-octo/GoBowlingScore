@@ -10,6 +10,9 @@ func main() {
 	fmt.Println("Run the tests, please ;-)")
 }
 
+// roll function to add a number of fallen pins to the current frame
+// The number of fallen pins is un unsigned integer between 0 and 10
+// to match the function signature as asked in the kata bowling, the function won't return anything.
 func roll(fallenPins uint8) {
 	if playerGame == nil || !playerGame.isIndexValid() {
 		return
@@ -38,6 +41,9 @@ func roll(fallenPins uint8) {
 	}
 }
 
+// score function deal with the fallens pins for every rolls of every frames of the game.
+// sum then and apply the special rules, like spares, strikes, double and turkey.const
+// manage the spécial rule of the last frame, that can have 3 rolls in case of spare, or strike.
 func score() uint16 {
 	if playerGame == nil {
 		return 0
